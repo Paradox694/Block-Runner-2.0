@@ -57,13 +57,24 @@ public class PlatformGenerator : MonoBehaviour
 
             Vector3 spawnPos = previousTilePosition + platformLength * direction;
 
+            Quaternion rot1 = Quaternion.Euler(0, -90, 0);
+
+            Quaternion rot2 = Quaternion.Euler(0, 0, 0);
+
             thePlatform = theObjectPooler.GetPooledObject();
 
             thePlatform.transform.position = spawnPos;
 
             previousTilePosition = spawnPos;
 
-            thePlatform.transform.rotation = transform.rotation;
+            if (direction == mainDirection)
+            {
+                thePlatform.transform.rotation = rot1;
+            }
+            else 
+            {
+                thePlatform.transform.rotation = transform.rotation;
+            }
 
             thePlatform.SetActive(true);
         }

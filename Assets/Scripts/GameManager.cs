@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Text scoreText;
 
-    [SerializeField] PlayerMovement playerMovement;
+    //[SerializeField] PlayerMovement playerMovement;
 
     public void IncrementScore()
     {
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
 
         // Increase the player's speed
-        playerMovement.speed += playerMovement.speedIncreasePerPoint;
+        //playerMovement.speed += playerMovement.speedIncreasePerPoint;
     }
 
     private void Awake()

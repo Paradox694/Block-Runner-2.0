@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     [SerializeField] float horizontalMultiplier = 2;
 
-    public float speedIncreasePerPoint = 0.1f;
+    //public float speedIncreasePerPoint = 0.1f;
 
     private bool turnLeft, turnRight;
 
