@@ -1,5 +1,7 @@
+
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -41,8 +43,6 @@ public class PlatformGenerator : MonoBehaviour
             if (Random.value < randomValue)
             {
                 direction = mainDirection;
-
-                thePlatform.transform.Rotate(0, -90, 0);
             }
             else
             {
@@ -53,17 +53,11 @@ public class PlatformGenerator : MonoBehaviour
                 mainDirection = direction;
 
                 otherDirection = temp;
-
-                thePlatform.transform.Rotate(0, 90, 0);
             }
 
             startTime = Time.time;
 
             Vector3 spawnPos = previousTilePosition + platformLength * direction;
-
-            //Quaternion rot1 = Quaternion.Euler(transform.forward);
-
-            //Quaternion rot2 = Quaternion.Euler(transform.right);
 
             thePlatform = theObjectPooler.GetPooledObject();
 
@@ -71,17 +65,19 @@ public class PlatformGenerator : MonoBehaviour
 
             previousTilePosition = spawnPos;
 
-            //if (direction == mainDirection)
-            //{
-            //    thePlatform.transform.Rotate(0, -90, 0);
-            //    thePlatform.transform.rotation = rot1;
-            //}
+            if (randomValue >= Random.value)
+            {
+                thePlatform.transform.Rotate(0, -90, 0);
+                //thePlatform.transform.rotation = rot2;
+                print("turning right");
+            }
 
-            //if (direction != mainDirection)
-            //{
-            //    thePlatform.transform.Rotate(0, 90, 0);
-            //    thePlatform.transform.rotation = rot2;
-            //}
+            else if (Random.value >= randomValue)
+            {
+                thePlatform.transform.Rotate(0, 90, 0);
+                //thePlatform.transform.rotation = rot1;
+                print("turning left");
+            }
 
             thePlatform.SetActive(true);
         }
