@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,9 +20,11 @@ public class PlatformGenerator : MonoBehaviour
 
     private float startTime;
 
+    private Quaternion originalRotation;
+
     private Vector3 previousTilePosition;
 
-    private Vector3 direction, mainDirection = new Vector3(0, 0, 1), otherDirection = new Vector3(1, 0, 0);
+    private Vector3 direction, mainDirection = new Vector3(1, 0, 0), otherDirection = new Vector3(0, 0, 1);
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,8 @@ public class PlatformGenerator : MonoBehaviour
         platformLength = thePlatform.GetComponent<BoxCollider>().size.x;
 
         startTime = Time.time;
+
+        originalRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -43,16 +46,23 @@ public class PlatformGenerator : MonoBehaviour
             if (Random.value < randomValue)
             {
                 direction = mainDirection;
+
+                ResetRotation();
+
             }
-            else
+            else 
             {
-                Vector3 temp = direction;
+                //Vector3 temp = direction;
 
                 direction = otherDirection;
 
-                mainDirection = direction;
+                //mainDirection = direction;
 
-                otherDirection = temp;
+                //otherDirection = temp;
+
+                thePlatform.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+                //ResetRotation();
             }
 
             startTime = Time.time;
@@ -65,21 +75,12 @@ public class PlatformGenerator : MonoBehaviour
 
             previousTilePosition = spawnPos;
 
-            if (randomValue >= Random.value)
-            {
-                thePlatform.transform.Rotate(0, -90, 0);
-                //thePlatform.transform.rotation = rot2;
-                print("turning right");
-            }
-
-            else if (Random.value >= randomValue)
-            {
-                thePlatform.transform.Rotate(0, 90, 0);
-                //thePlatform.transform.rotation = rot1;
-                print("turning left");
-            }
-
             thePlatform.SetActive(true);
         }
+    }
+
+    public void ResetRotation()
+    {
+        thePlatform.transform.rotation = originalRotation;
     }
 }

@@ -3448,6 +3448,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bd31e7a8bec4e40a5911611e2fa9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1749035481125449312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7447012087518319282}
+  m_Layer: 0
+  m_Name: RotatePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7447012087518319282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749035481125449312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8287831851855388368}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824241622547432506
 GameObject:
   m_ObjectHideFlags: 0
@@ -4058,7 +4089,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8287831851855388368}
   - component: {fileID: 796970504433660124}
-  - component: {fileID: 6068378775903749776}
+  - component: {fileID: 3328358549789140289}
   m_Layer: 0
   m_Name: GroundTile
   m_TagString: Untagged
@@ -4074,11 +4105,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071931604697471997}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.008726535, w: 0.9999619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7447012087518319282}
   - {fileID: 1726186688932021773}
   - {fileID: 8843309969845861811}
   - {fileID: 2162383239461493455}
@@ -4108,7 +4140,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6068378775903749776
+--- !u!114 &3328358549789140289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
