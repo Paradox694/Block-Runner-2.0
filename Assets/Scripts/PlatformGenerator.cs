@@ -24,7 +24,7 @@ public class PlatformGenerator : MonoBehaviour
 
     private Vector3 previousTilePosition;
 
-    private Vector3 direction, mainDirection = new Vector3(1, 0, 0), otherDirection = new Vector3(0, 0, 1);
+    private Vector3 direction, mainDirection = new Vector3(1, 0, 0), leftDirection = new Vector3(0, 0, 1), rightDirection = new Vector3(0, 0, -1);
 
     // Start is called before the first frame update
     void Start()
@@ -50,19 +50,17 @@ public class PlatformGenerator : MonoBehaviour
                 ResetRotation();
 
             }
-            else 
+            else if (Random.value > randomValue)
             {
-                //Vector3 temp = direction;
-
-                direction = otherDirection;
-
-                //mainDirection = direction;
-
-                //otherDirection = temp;
+                direction = leftDirection;
 
                 thePlatform.transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+            else
+            {
+                direction = rightDirection;
 
-                //ResetRotation();
+                thePlatform.transform.rotation = Quaternion.Euler(0, 90, 0);
             }
 
             startTime = Time.time;
